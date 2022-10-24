@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Main {
   public static void main(String[] args) {
     String greeting = "Welcome to my Java program.";
@@ -13,22 +15,48 @@ public class Main {
     // int four = 4;
     // int result = multiplyByTwo(four);
     // System.out.println(four + " doubled is " + result);
-    pluralize(cat,0);
+    System.out.println(pluralize("cat",10));
+    System.out.println(pluralize("cat",1));
+    System.out.println(flipNHeads(8));
+    
   }
 
   // Functions that return nothing have a return type of "void"
-  public static void pluralize(String word,int count) {
+  public static String pluralize(String word,int count) {
     String res = "";
     if(count==0||count>1){
       res = word+"s";
     }
     else {
-      System.out.println("I have" + count + res)
+      res=word;
     }
+    return "I have " + count +" "+ res;
   }
 
-  // This function has a return type of "int"
-  public static int multiplyByTwo(int n) {
-    return n * 2;
-  }
+  public static String flipNHeads(int n){
+    int counter = 0;
+    int start = 0;
+    String res = "";
+    
+    Random rand = new Random();
+
+    while(start < n ){
+    int side = rand.nextInt(2);
+      if(side == 0) {
+      res = "heads";
+    } else {
+      res = "tails";
+    }
+
+      counter+=1;
+      if(res=="heads"){
+        start+=1;
+      } else {
+        start=0;
+      }
+
+      System.out.println(res);
+    }
+    return "It took "+counter+" flips to flip "+ n +" heads in a row";
+}
 }
