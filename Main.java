@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.time.LocalDateTime;
+import java.time.format.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -15,9 +17,10 @@ public class Main {
     // int four = 4;
     // int result = multiplyByTwo(four);
     // System.out.println(four + " doubled is " + result);
-    System.out.println(pluralize("cat",10));
-    System.out.println(pluralize("cat",1));
-    System.out.println(flipNHeads(8));
+    // System.out.println(pluralize("cat",16));
+    // System.out.println(pluralize("dog",1));
+    // System.out.println(flipNHeads(3));
+    clock();
     
   }
 
@@ -57,6 +60,25 @@ public class Main {
 
       System.out.println(res);
     }
-    return "It took "+counter+" flips to flip "+ n +" heads in a row";
+    return "It took "+counter+" flips to flip "+ n +" heads in a row.";
 }
+
+    public static void clock(){ //needed Ben's help with this
+      LocalDateTime now = LocalDateTime.now();
+      int hour = now.getHour();
+      int minute = now.getMinute();
+      int second = now.getSecond();
+// or, if you're feeling fancy
+      String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+      while (true){
+        now = LocalDateTime.now();
+        String sNow = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        if(!sNow.equals(time)){
+        time = sNow;
+        System.out.println(time);
+        }
+
+      }
+    }
 }
