@@ -1,7 +1,6 @@
 import java.util.Random;
 import java.time.LocalDateTime;
 import java.time.format.*;
-import javaRand.test;
 
 public class Main {
   public static void main(String[] args) {
@@ -9,7 +8,6 @@ public class Main {
     System.out.println(pluralize("cat",16));
     System.out.println(pluralize("dog",1));
     System.out.println(flipNHeads(3));
-    test();
     clock();
   }
 
