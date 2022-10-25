@@ -6,12 +6,11 @@ import javaRand.test;
 public class Main {
   public static void main(String[] args) {
 
-    // System.out.println(pluralize("cat",16));
-    // System.out.println(pluralize("dog",1));
+    System.out.println(pluralize("cat",16));
+    System.out.println(pluralize("dog",1));
     System.out.println(flipNHeads(3));
     test();
-    // clock();
-    
+    clock();
   }
 
   public static String pluralize(String word,int count) {
