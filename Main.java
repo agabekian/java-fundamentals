@@ -1,30 +1,19 @@
 import java.util.Random;
 import java.time.LocalDateTime;
 import java.time.format.*;
+import javaRand.test;
 
 public class Main {
   public static void main(String[] args) {
-    String greeting = "Welcome to my Java program.";
-    System.out.println(greeting);
 
-    int x = 7;
-    float f = 42.3f;
-    double d = 42.3;
-
-    // execute the function called "loopTo" and pass 10 as a parameter
-    // loopTo(10);
-
-    // int four = 4;
-    // int result = multiplyByTwo(four);
-    // System.out.println(four + " doubled is " + result);
     // System.out.println(pluralize("cat",16));
     // System.out.println(pluralize("dog",1));
-    // System.out.println(flipNHeads(3));
-    clock();
+    System.out.println(flipNHeads(3));
+    test();
+    // clock();
     
   }
 
-  // Functions that return nothing have a return type of "void"
   public static String pluralize(String word,int count) {
     String res = "";
     if(count==0||count>1){
@@ -50,13 +39,9 @@ public class Main {
     } else {
       res = "tails";
     }
-
       counter+=1;
-      if(res=="heads"){
-        start+=1;
-      } else {
-        start=0;
-      }
+      if(res=="heads") start+=1;
+      else start=0;
 
       System.out.println(res);
     }
