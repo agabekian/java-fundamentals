@@ -41,22 +41,17 @@ public class Library {
         return sum/arr.length;
     }
 
-    public float arrayOfArrays(int[][] arrse){
-        float[] averages = new float[arrse.length];
-        for(int i =0; i < arrse.length; i++){
-            float avg = calculateAverage(arrse[i]);
-            System.out.println("curr= average"+avg);
-            averages[i]=avg;
+    public int arrayOfArrays(int[][] arr2d){
+        float lowestAvg = calculateAverage(arr2d[0]);
+        int res = 0;
+        float[] averages = new float[arr2d.length];
+        for(int i = 1; i < arr2d.length; i++){
+            float avg = calculateAverage(arr2d[i]);
+            if(avg < lowestAvg){
+                lowestAvg = avg;
+                res = i;
+            };
         }
-        System.out.println(averages);
-        float min = averages[0];
-        System.out.println("start min"+min);
-        for(int j = 0; j < averages.length; j++){
-            if(averages[j]< min){
-                min = averages[j];
-            }
-        }
-        System.out.println("Min is"+ min);
-        return min;
+        return res;
     }
 }
