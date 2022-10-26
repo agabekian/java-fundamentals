@@ -39,15 +39,14 @@ class LibraryTest {
     }
 
     @Test void testAssArrays(){
+        Library sut = new Library();
         int[][] weeklyTemps ={
                 {100,110,120,130},
                 {22,33,44,55},
                 {33,44,55,66}
         };
-
-        Library sut = new Library();
-        float expected = 38.5f;
-        float res = sut.arrayOfArrays(weeklyTemps);
+        int expected = 1;
+        int res = sut.arrayOfArrays(weeklyTemps);
         assertEquals(res,expected);
     }
 }
