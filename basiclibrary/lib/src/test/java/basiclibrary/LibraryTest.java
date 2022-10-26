@@ -9,11 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class LibraryTest {
 
     @Test void testRollDice(){
-        int test = 4;
-        int goal = 4;
         Library sut = new Library();
-        int res = ((sut.rollDice(test))).length;
-        assertEquals(res,goal);
+        int test = 4;
+        int expect = 4;
+        int[] rollResults = sut.rollDice(test);
+        assertEquals(rollResults.length, expect);
+        for (int rollRes : rollResults){
+            assertTrue(rollRes>=1 && rollRes<=6);
+        }
     }
 
     @Test void testContainsDuplicates(){
@@ -28,10 +31,10 @@ class LibraryTest {
         assertFalse(res2, String.valueOf(t));
     }
     @Test void testCalcAvg(){
-        int[] testarr = {22,33,44,55};
+        int[] testcase = {22,33,44,55};
         Library sut = new Library();
         float expected = 38.5f;
-        float res = sut.calculateAverage(testarr);
+        float res = sut.calculateAverage(testcase);
         assertEquals(res,expected);
     }
 

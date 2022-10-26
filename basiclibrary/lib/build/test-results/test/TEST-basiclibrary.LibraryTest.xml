@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="basiclibrary.LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-26T00:48:33" hostname="Loluntss-MacBook-Pro.local" time="0.035">
+<testsuite name="basiclibrary.LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-26T17:09:50" hostname="Loluntss-MacBook-Pro.local" time="0.019">
   <properties/>
-  <testcase name="testAssArrays()" classname="basiclibrary.LibraryTest" time="0.035"/>
-  <system-out><![CDATA[curr= average115.0
-curr= average38.5
-curr= average49.5
-[F@f0c8a99
-start min115.0
-Min is38.5
-]]></system-out>
+  <testcase name="testRollDice()" classname="basiclibrary.LibraryTest" time="0.019"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

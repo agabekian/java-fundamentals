@@ -13,7 +13,8 @@ public class Library {
         int[] res = new int[n];
         int i = 0;
         while (i < n) {
-            res[i] = rand.nextInt(7);//the only way to reassign
+            int roll = rand.nextInt(6)+1;
+            res[i] = roll;
             i += 1;
         }
         return res;
