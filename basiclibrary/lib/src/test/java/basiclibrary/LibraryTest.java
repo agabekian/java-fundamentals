@@ -4,24 +4,30 @@
 package basiclibrary;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
 
-    @Test void testRollDice(){
+    @Test
+    void testRollDice() {
         Library sut = new Library();
         int test = 4;
         int expect = 4;
         int[] rollResults = sut.rollDice(test);
         assertEquals(rollResults.length, expect);
-        for (int rollRes : rollResults){
-            assertTrue(rollRes>=1 && rollRes<=6);
+        for (int rollRes : rollResults) {
+            assertTrue(rollRes >= 1 && rollRes <= 6);
         }
     }
 
-    @Test void testContainsDuplicates(){
-        Integer[] test1 = {1,2,1};
-        int[] test2 = {1,2,3};
+    @Test
+    void testContainsDuplicates() {
+        Integer[] test1 = {1, 2, 1};
+        int[] test2 = {1, 2, 3};
         Library sut = new Library();
         boolean t = true;
         boolean res = sut.containsDuplicates(test1);
@@ -30,23 +36,52 @@ class LibraryTest {
 //        assertEquals(res,true);
         assertFalse(res2, String.valueOf(t));
     }
-    @Test void testCalcAvg(){
-        int[] testcase = {22,33,44,55};
+
+    @Test
+    void testCalcAvg() {
+        int[] testcase = {22, 33, 44, 55};
         Library sut = new Library();
         float expected = 38.5f;
         float res = sut.calculateAverage(testcase);
-        assertEquals(res,expected);
+        assertEquals(res, expected);
     }
 
-    @Test void testAssArrays(){
+    @Test
+    void testAssArrays() {
         Library sut = new Library();
-        int[][] weeklyTemps ={
-                {100,110,120,130},
-                {22,33,44,55},
-                {33,44,55,66}
+        int[][] weeklyTemps = {
+                {100, 110, 120, 130},
+                {22, 33, 44, 55},
+                {33, 44, 55, 66}
         };
         int expected = 1;
         int res = sut.arrayOfArrays(weeklyTemps);
-        assertEquals(res,expected);
+        assertEquals(res, expected);
+    }
+
+    @Test
+    void testTemps() {
+        Library sut = new Library();
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        String res = sut.checkWeatherData(weeklyMonthTemperatures);
+        System.out.println(res);
+        assertTrue(res.contains("63"));
+        assertFalse(res.contains("62"));
+
+    }
+
+    @Test
+    void testVote() {
+        Library sut = new Library();
+        String[] names = {"Andro", "Boris","Boris"};
+        List<String> votes = Arrays.asList(names);
+        String res = sut.tally(votes);
+        System.out.println(res);
+        assertTrue(res=="Boris");
     }
 }

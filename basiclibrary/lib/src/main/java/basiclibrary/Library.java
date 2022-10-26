@@ -3,17 +3,15 @@
  */
 package basiclibrary;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
+
 public class Library {
     public int[] rollDice(int n) {
         Random rand = new Random();
         int[] res = new int[n];
         int i = 0;
         while (i < n) {
-            int roll = rand.nextInt(6)+1;
+            int roll = rand.nextInt(6) + 1;
             res[i] = roll;
             i += 1;
         }
@@ -21,7 +19,7 @@ public class Library {
     }
 
     public boolean containsDuplicates(Integer[] arr) {
-        return new HashSet<Integer>(Arrays.asList(arr)).size() != arr.length;
+        return new HashSet<>(Arrays.asList(arr)).size() != arr.length;
     }
 
     public boolean containsDuplicates2(int[] arr) { //brute force
@@ -33,25 +31,70 @@ public class Library {
         return false;
     }
 
-    public float calculateAverage(int[] arr){
+    public float calculateAverage(int[] arr) {
         float sum = 0f;
-        for (int t: arr) {
-            sum+=t;
+        for (int t : arr) {
+            sum += t;
         }
-        return sum/arr.length;
+        return sum / arr.length;
     }
 
-    public int arrayOfArrays(int[][] arr2d){
+    public int arrayOfArrays(int[][] arr2d) {
         float lowestAvg = calculateAverage(arr2d[0]);
         int res = 0;
-        float[] averages = new float[arr2d.length];
-        for(int i = 1; i < arr2d.length; i++){
+        for (int i = 1; i < arr2d.length; i++) {
             float avg = calculateAverage(arr2d[i]);
-            if(avg < lowestAvg){
+            if (avg < lowestAvg) {
                 lowestAvg = avg;
                 res = i;
-            };
+            }
         }
         return res;
     }
+
+    public String checkWeatherData(int[][] data) {
+        HashSet<Integer> output = new HashSet<>();
+        StringBuilder res;
+        int minTemp = data[0][1];
+        int maxTemp = data[0][1];
+        System.out.println(minTemp + " " + maxTemp);
+        for (int[] week : data) {
+            for (int day : week) {
+                output.add(day);
+                if (day > maxTemp) maxTemp = day;
+                if (day < minTemp) minTemp = day;
+            }
+//            System.out.println(output);
+        }
+        res = new StringBuilder("High: " + maxTemp + "\n" + "Low: " + maxTemp + "\n");
+        for (int i = minTemp; i <= maxTemp; i++) {
+            if (!output.contains(i)) {
+                res.append("Never saw temperature: ").append(i).append("\n");
+            }
+        }
+        return res.toString();
+    }
+
+    public String tally(List<String> votes) {
+        HashMap<String, Integer> voteCount = new HashMap<>();
+        int highCount = 0;
+        String winner ="";
+        for (String vote : votes) {
+//            voteCount.computeIfPresent(vote,(k,v)-> v+1);
+            if (voteCount.containsKey(vote)) {
+                voteCount.put(vote, voteCount.get(vote) + 1);
+                if(voteCount.get(vote)>highCount){
+                    highCount = voteCount.get(vote);
+                    winner = vote;
+                }
+            } else {
+                voteCount.put(vote, 1);
+            }
+
+        }
+        System.out.println(winner);
+        return winner;
+
+    }
 }
+

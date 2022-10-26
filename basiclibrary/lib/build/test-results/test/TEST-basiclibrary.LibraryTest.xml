@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="basiclibrary.LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-26T20:13:30" hostname="Loluntss-MacBook-Pro.local" time="0.017">
+<testsuite name="basiclibrary.LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-26T22:16:40" hostname="Loluntss-MacBook-Pro.local" time="0.034">
   <properties/>
-  <testcase name="testAssArrays()" classname="basiclibrary.LibraryTest" time="0.017"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="testTemps()" classname="basiclibrary.LibraryTest" time="0.034"/>
+  <system-out><![CDATA[64 64
+High: 72
+Low: 72
+Never saw temperature: 63
+Never saw temperature: 67
+Never saw temperature: 68
+Never saw temperature: 69
+
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
