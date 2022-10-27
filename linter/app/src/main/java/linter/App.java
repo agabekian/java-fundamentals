@@ -16,7 +16,7 @@ public class App {
     public static void main(String[] args) {
 //        Path linterPath = Paths.get("gates.js");
 //        System.getProperty("user.dir"); //from Ben!
-        readBufferTryWithResources("gates.js");
+        readBufferTryWithResources("app/src/main/resources/gates.js");
     }
 
     // Read with BufferedReader try with resources
