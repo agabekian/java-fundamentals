@@ -7,8 +7,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+
+
+    @Test void testRClass(){
+        Restaurant sut = new Restaurant("Gamma","$$$$");
+        System.out.println(sut.name + sut.pricing);
+        Review blurb = new Review("good food","Armen",5);
+        Review blurb2 = new Review("not good food","Steve",1);
+        sut.addReview(blurb);
+        sut.addReview(blurb2);
+        System.out.println("cur rate"+sut.getRating());
     }
 }
