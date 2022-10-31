@@ -7,27 +7,26 @@ public class Restaurant {
     public String name;
     public String pricing;
     List<Review> reviews = new ArrayList<>();
-    private int avgRating;
     public Restaurant(String name, String pricing) {
         this.name = name;
         this.pricing = pricing;
     }
-    private void calcAvgRating (){
+    public int calcAvgRating (){
         int totalRating = 0;
         for(Review r :reviews){
             totalRating += r.rating;
         }
-        avgRating = totalRating/reviews.size();
+        return totalRating/reviews.size();
     }
-    public int getRating(){
-        calcAvgRating();
-        return avgRating;
-    }
-    public void addReview (Review newReview){
-        reviews.add(newReview);
+    public void addReview (Review newReview) {
+        if (!reviews.contains(newReview)) {
+            reviews.add(newReview);
+        } else {
+            System.out.println("review already added");
+        }
     }
     @Override
     public String toString(){
-        return "The "+name+ " restaurant has a rating of "+avgRating+" price range: "+ pricing;
+        return "The "+name+ " restaurant has a rating of "+calcAvgRating()+" price range: "+ pricing;
     }
 }

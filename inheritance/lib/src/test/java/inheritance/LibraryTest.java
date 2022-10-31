@@ -4,19 +4,33 @@
 package inheritance;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
 
 
-    @Test void testRClass(){
-        Restaurant sut = new Restaurant("Gamma","$$$$");
-        System.out.println(sut.name + sut.pricing);
-        Review blurb = new Review("good food","Armen",5);
-        Review blurb2 = new Review("not good food","Steve",1);
+    @Test
+    void testRClass() {
+        Restaurant sut = new Restaurant("Gamma", "$$$$");
+        Review blurb = new Review("good food", "Armen", 5);
+        Review blurb2 = new Review("not good food", "Steve", 1);
+        Review blurb3 = new Review("if I could give 0 stars..","angry dude",0);
         sut.addReview(blurb);
         sut.addReview(blurb2);
+        //check for reviews valid range
+        sut.addReview(blurb3);
+        //check if already submitted,if so - do not add.
+        sut.addReview(blurb2);
+        //check that string prints correctly
         System.out.println(sut.toString());
-        System.out.println("cur rate"+sut.getRating());
+        // len of 2 - review, body contents, pricing,
+        //assert that reviews contain correct number of reviews
+        assertTrue(sut.reviews.size() == 2);
+        //assert pricing is correct
+        assertTrue(sut.pricing.equals("$$$$"));
+        //check average rating
+        assertTrue(sut.calcAvgRating()==3);
+
     }
 }

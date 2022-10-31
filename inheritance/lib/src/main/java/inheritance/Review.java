@@ -7,7 +7,7 @@ public class Review {
 
     private int checkRating (int rated) {
         if (rated < 1 || rated > 5) {
-            System.out.println("Please rate between 1 and 5 starts");
+            System.out.println("Please rate between 1 and 5 stars");
         }
         return rated;
     }
