@@ -16,6 +16,7 @@ class LibraryTest {
         Review blurb2 = new Review("not good food","Steve",1);
         sut.addReview(blurb);
         sut.addReview(blurb2);
+        System.out.println(sut.toString());
         System.out.println("cur rate"+sut.getRating());
     }
 }
