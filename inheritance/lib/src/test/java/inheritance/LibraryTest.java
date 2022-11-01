@@ -17,6 +17,7 @@ class LibraryTest {
         Review blurb2 = new Review("not good food", "Steve", 1);
         Review blurb3 = new Review("if I could give 0 stars..","angry dude",0);
         sut.addReview(blurb);
+        //do not add duplicate review
         sut.addReview(blurb2);
         //check for reviews valid range
         sut.addReview(blurb3);
@@ -26,10 +27,10 @@ class LibraryTest {
         System.out.println(sut.toString());
         // len of 2 - review, body contents, pricing,
         //assert that reviews contain correct number of reviews
-        assertTrue(sut.reviews.size() == 2);
+        assertTrue(sut.reviews.size() == 3);
         //assert pricing is correct
         assertTrue(sut.pricing.equals("$$$$"));
-        //check average rating
+        //check for correct average rating
         assertTrue(sut.calcAvgRating()==3);
 
     }
