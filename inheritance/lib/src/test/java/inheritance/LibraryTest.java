@@ -29,7 +29,7 @@ class LibraryTest {
         assertTrue(sut.reviews.size() == 3);
         //assert pricing is correct
         assertTrue(sut.pricing.equals("$$$$"));
-        //check average rating
+        //check for correct average rating
         assertTrue(sut.calcAvgRating()==3);
 
     }
