@@ -26,7 +26,7 @@ class LibraryTest {
         System.out.println(sut.toString());
         // len of 2 - review, body contents, pricing,
         //assert that reviews contain correct number of reviews
-        assertTrue(sut.reviews.size() == 2);
+        assertTrue(sut.reviews.size() == 3);
         //assert pricing is correct
         assertTrue(sut.pricing.equals("$$$$"));
         //check average rating

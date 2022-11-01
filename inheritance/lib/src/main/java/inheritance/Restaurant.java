@@ -13,8 +13,8 @@ public class Restaurant {
     }
     public int calcAvgRating (){
         int totalRating = 0;
-        for(Review r :reviews){
-            totalRating += r.rating;
+        for(Review review :reviews){
+            totalRating += review.rating;
         }
         return totalRating/reviews.size();
     }

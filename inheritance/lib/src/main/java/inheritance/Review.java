@@ -7,11 +7,11 @@ public class Review {
 
     private int checkRating (int rated) {
         if (rated < 1 || rated > 5) {
-            System.out.println("Please rate between 1 and 5 stars");
+            throw new IllegalArgumentException("Please rate between 1 and 5 stars");
         }
+
         return rated;
     }
-
 
     public Review(String body, String author, int rating) {
         this.body = body;
