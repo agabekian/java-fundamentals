@@ -17,6 +17,7 @@ class LibraryTest {
         Review blurb2 = new Review("not good food", "Steve", 1);
         Review blurb3 = new Review("if I could give 0 stars..","angry dude",0);
         sut.addReview(blurb);
+        //do not add duplicate review
         sut.addReview(blurb2);
         //check for reviews valid range
         sut.addReview(blurb3);
