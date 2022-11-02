@@ -13,25 +13,66 @@ class LibraryTest {
     @Test
     void testRClass() {
         Restaurant sut = new Restaurant("Gamma", "$$$$");
+        System.out.println(sut);
         Review blurb = new Review("good food", "Armen", 5);
         Review blurb2 = new Review("not good food", "Steve", 1);
-        Review blurb3 = new Review("if I could give 0 stars..","angry dude",0);
+//        check for reviews valid range
+//        Review blurb3 = new Review("if I could give 0 stars..","angry dude",0);
         sut.addReview(blurb);
         //do not add duplicate review
         sut.addReview(blurb2);
-        //check for reviews valid range
-        sut.addReview(blurb3);
         //check if already submitted,if so - do not add.
-        sut.addReview(blurb2);
+//        sut.addReview(blurb2);
         //check that string prints correctly
         System.out.println(sut.toString());
         // len of 2 - review, body contents, pricing,
         //assert that reviews contain correct number of reviews
-        assertTrue(sut.reviews.size() == 3);
+        assertTrue(sut.reviews.size() == 2);
         //assert pricing is correct
         assertTrue(sut.pricing.equals("$$$$"));
         //check for correct average rating
-        assertTrue(sut.calcAvgRating()==3);
+        assertTrue(Integer.valueOf(sut.getRating())==3);
+
+        }
+    @Test
+    void testRestaurant() {
+        Restaurant sut = new Restaurant("Gamma", "$$$$");
+        sut.dealWithPissedOfCustomers(); //interface test
+//        CustomerRelations.interfaceSays();
+        Review blurb1 = new Review("Oh dude..", "Bob", 5);
+//        sut.addReview(blurb1);
+        System.out.println(sut.toString());
+    }
+
+    @Test
+    void testTheatre(){
+        Theatre sut = new Theatre("Eldorado");
+        System.out.println(sut.name);
+        System.out.println(sut.inventory);
+        sut.addMovie("Gold of McKenna"); //add a movie
+        assertTrue(sut.inventory.size()==1 && sut.inventory.contains("Gold of McKenna"));
+        sut.addMovie("Spaghetti"); //add another one;
+        assertTrue(sut.inventory.size()==2 && sut.inventory.contains("Spaghetti"));
+        sut.removeMovie("Spaghetti"); //remove one
+        assertTrue(sut.inventory.size()==1 && !sut.inventory.contains("Spaghetti"));
+//        System.out.println(sut.toString());
+
+        Review blurb1 = new Review("Magical place..", "Helen", 5);
+        Review blurb2 = new Review("Oh dude..filthy", "Bob", 1);
+        sut.addReview(blurb1);
+        sut.addReview(blurb2);
+        assertTrue(Integer.valueOf(sut.getRating())==3); //check avg rating
+
+    }
+
+    @Test
+    void testShop(){
+        Shop sut = new Shop("Dirty Harry","$");
+        sut.addReview(new Review("the worst smell ever","some dude",1));
+        assertTrue(sut.reviews.size()==1);
+        System.out.println(sut.toString());
+        String res = sut.toString();
+        assertTrue(res.equalsIgnoreCase("The Dirty Harry shop $ has a rating of: 1"));
 
     }
 }
