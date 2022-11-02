@@ -9,7 +9,6 @@ public class Review {
         if (rated < 1 || rated > 5) {
             throw new IllegalArgumentException("Please rate between 1 and 5 stars");
         }
-
         return rated;
     }
 
